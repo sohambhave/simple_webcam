@@ -1,0 +1,4 @@
+<launch>
+  <node name="video_pub" pkg="simple_webcam" type="video_pub.py" />
+  <node name="video_sub" pkg="simple_webcam" type="video_sub.py" />
+</launch>
