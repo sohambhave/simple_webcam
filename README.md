@@ -22,15 +22,15 @@ Of message type **sensor_msgs/Image** used for carrying webcam video stream.<br>
 
 **1. image_proc**<br>
 <br>
-**Arguments:**
-* image_in (Of type **sensor_msgs/Image**)
+#### Arguments
 * BLUR (Of type Bool) 
 * CROP (Of type Bool)
 * crop_x (Of type Int16)
 * crop_y (Of type Int16)
 * crop_H (Of type Int16)
 * crop_W (Of type Int16)
-
+#### Outputs
+* image_out (Of type sensor_msgs/Image)
 ## Launch Files
 **1. basic.launch**<br>
 Launches nodes **video_pub**, **video_sub**<br><br>
