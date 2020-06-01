@@ -12,13 +12,15 @@ bridge = CvBridge()
 
 def image_proc_handle(req):
 	img = req.image_in
-
+	img = bridge.imgmsg_to_cv2(img, "bgr8")
+	
 	if req.BLUR == True:
 		img = cv2.blur(img,(10,10))
 	
 	if req.CROP == True:
 		img = img[req.crop_y:req.crop_y+req.crop_H,req.crop_x:req.crop_x+req.crop_W]
 
+	img = bridge.cv2_to_imgmsg(img, "bgr8")
 	return(Image_ProcResponse(img))
 
 
