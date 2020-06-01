@@ -10,18 +10,15 @@ cap = cv2.VideoCapture(0) #Video capture object for first camera
 bridge = CvBridge()
 
 def video_pub():
-	video_pub = rospy.Publisher('video_pub', Image, queue_size = 10) # Publisher with message type sensor_msgs.msg/Image
+	video_pub = rospy.Publisher('video_stream', Image, queue_size = 10) # Publisher with message type sensor_msgs.msg/Image
 	rospy.init_node('video_pub', anonymous=True)
 	rospy.loginfo("Starting Webcam")
 	while not rospy.is_shutdown():
 		ret, cv_image = cap.read()
 		Image_msg = bridge.cv2_to_imgmsg(cv_image, "bgr8")
 		video_pub.publish(Image_msg)
-		cv2.imshow('Camera 1',cv_image)
-		cv2.waitKey(1)
 		
 if __name__ == '__main__':
 	video_pub()
 	rospy.loginfo("Closing Webcam")
 	cap.release()
-	cv2.destroyAllWindows()
