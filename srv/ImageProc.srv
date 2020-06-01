@@ -1,0 +1,9 @@
+sensor_msgs/Image image_in
+bool BLUR
+bool CROP
+int16 crop_x
+int16 crop_y
+int16 crop_H
+int16 crop_W
+---
+sensor_msgs/Image image_out
