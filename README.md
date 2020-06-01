@@ -21,7 +21,6 @@ Of message type **sensor_msgs/Image** used for carrying webcam video stream.<br>
 ## Services
 
 **1. image_proc**<br>
-<br>
 #### Arguments
 * BLUR (Of type Bool) 
 * CROP (Of type Bool)
