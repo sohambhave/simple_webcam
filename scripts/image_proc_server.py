@@ -25,7 +25,7 @@ def image_proc_handle(req):
 
 
 def image_proc_server():
-	rospy.init_node('video_pub', anonymous=True)
+	rospy.init_node('image_proc_server', anonymous=True)
 	rospy.loginfo("Starting Image Processing Server")
 	s = rospy.Service('image_proc', Image_Proc, image_proc_handle)
 	rospy.spin()
