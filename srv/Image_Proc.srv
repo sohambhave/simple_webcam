@@ -1,4 +1,3 @@
-sensor_msgs/Image image_in
 bool BLUR
 bool CROP
 int16 crop_x
