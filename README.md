@@ -32,6 +32,8 @@ Of message type **sensor_msgs/Image** used for carrying webcam video stream.<br>
 * crop_W (Of type Int16)
 
 ## Launch Files
-* **basic.launch** -  Launches **video_pub, video_sub**
-* **basic_service.launch** - Launches **video_pub, image_proc_server, image_proc_client,**  
+**1. basic.launch**<br>
+Launches nodes **video_pub**, **video_sub**<br><br>
+**2. basic_service.launch**<br>
+Launches nodes **video_pub**, **image_proc_server**, **image_proc_client,**  
 
