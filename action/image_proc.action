@@ -2,7 +2,7 @@
 sensor_msgs/Image image_in
 ---
 #result definition
-sensor_msgs/Image image_inter
+sensor_msgs/Image image_out
 ---
 #feedback
-sensor_msgs/Image image_out
+sensor_msgs/Image image_inter
