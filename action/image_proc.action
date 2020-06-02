@@ -1,0 +1,8 @@
+#goal definition
+sensor_msgs/Image image_in
+---
+#result definition
+sensor_msgs/Image image_inter
+---
+#feedback
+sensor_msgs/Image image_out
