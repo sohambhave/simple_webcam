@@ -1,0 +1,8 @@
+<launch>
+  <node name="video_pub" pkg="simple_webcam" type="video_pub.py" />
+
+  <node name="proc_act_server" pkg="simple_webcam" type="proc_act_server.py" />
+
+  <node name="image_proc_client" pkg="simple_webcam" type="proc_act_client.py" />
+
+</launch>
