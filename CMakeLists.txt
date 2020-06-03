@@ -14,6 +14,12 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   message_generation
   actionlib_msgs
+  nodelet
+  cv_bridge
+  image_transport
+#  OpenCV
+
+#  opencv3
 )
 
 ## System dependencies are found with CMake's conventions
@@ -107,7 +113,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES simple_webcam 
+ LIBRARIES simple_webcam 
  CATKIN_DEPENDS
  roscpp
  rospy
@@ -115,9 +121,14 @@ catkin_package(
  sensor_msgs
  message_runtime
  actionlib_msgs
+ nodelet
+ cv_bridge
+ image_transport
+# OpenCV
+ # opencv3
 #  DEPENDS system_lib
 )
-
+find_package(OpenCV REQUIRED)
 ###########
 ## Build ##
 ###########
@@ -127,12 +138,25 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/simple_webcam.cpp
 # )
+
+add_library(simple_webcam
+src/img_pub.cpp
+src/img_sub.cpp
+)
+
+add_executable(simple_webcam_node src/roscpp_opencv.cpp)
+
+target_link_libraries(simple_webcam_node
+${catkin_LIBRARIES}
+${OpenCV_LIBRARIES}
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -142,7 +166,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/simple_webcam_node.cpp)
+# 
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -213,3 +237,8 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+if(catkin_EXPORTED_LIBRARIES)
+  add_dependencies(simple_webcam ${catkin_EXPORTED_LIBRARIES})
+endif()
+

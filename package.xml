@@ -54,6 +54,10 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>actionlib_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>nodelet</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
@@ -64,12 +68,13 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>actionlib_msgs</exec_depend>
-  <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
-
+  <exec_depend>nodelet</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <nodelet plugin="${prefix}/img_pub.xml"/>
+    <nodelet plugin="${prefix}/img_sub.xml"/>
   </export>
 </package>

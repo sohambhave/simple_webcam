@@ -1,0 +1,10 @@
+
+<library path="libsimple_webcam">
+	<class name="simple_webcam/Img_Pub" type="simple_webcam::Img_Pub" base_class_type="nodelet::Nodelet">
+			<description>
+			A node to republish a message
+			</description>
+	</class>
+</library>
+
+
